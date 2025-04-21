@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Retouche Photo - Web</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>💧 Ajouter un Filigrane à vos Photos</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <label>📂 Sélectionner les images (PNG, JPG)</label>
+            <input type="file" name="photos" multiple required title="Sélectionnez vos photos à traiter" placeholder="Choisissez vos fichiers"><br><br>
+
+            <label>🌊 Fichier filigrane (PNG ou JPG)</label>
+            <input type="file" name="watermark" accept="image/*" required title="Sélectionnez votre fichier filigrane" placeholder="Choisissez un fichier"><br><br>
+
+            <label>📌 Position du filigrane</label>
+            <select name="position" title="Choisissez la position du filigrane">
+                <option value="bottom_right">En bas à droite</option>
+                <option value="bottom_center">En bas au centre</option>
+                <option value="bottom_left">En bas à gauche</option>
+                <option value="top_right">En haut à droite</option>
+                <option value="top_left">En haut à gauche</option>
+                <option value="center">Centre</option>
+            </select><br><br>
+
+            <label>📏 Taille du filigrane (%)</label>
+            <input type="number" name="scale" value="25" min="5" max="50" title="Entrez la taille du filigrane en pourcentage" placeholder="Exemple : 25"><br><br>
+
+            <button type="submit">🚀 Lancer le traitement</button>
+        </form>
+    </div>
+</body>
+</html>
